@@ -13,6 +13,7 @@
 		CB82B39E1EB1ACB7006270D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB82B39D1EB1ACB7006270D8 /* Assets.xcassets */; };
 		CB82B3A11EB1ACB7006270D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB82B39F1EB1ACB7006270D8 /* LaunchScreen.storyboard */; };
 		CB82B3A91EB1ADEB006270D8 /* PhotoTweakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82B3A81EB1ADEB006270D8 /* PhotoTweakViewController.swift */; };
+		CB93BD571EE7CA0600A01E4B /* PhotoTweakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB93BD561EE7CA0600A01E4B /* PhotoTweakView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CB82B3A01EB1ACB7006270D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB82B3A21EB1ACB7006270D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB82B3A81EB1ADEB006270D8 /* PhotoTweakViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTweakViewController.swift; sourceTree = "<group>"; };
+		CB93BD561EE7CA0600A01E4B /* PhotoTweakView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTweakView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				CB82B3A81EB1ADEB006270D8 /* PhotoTweakViewController.swift */,
+				CB93BD561EE7CA0600A01E4B /* PhotoTweakView.swift */,
 				CB82B3961EB1ACB7006270D8 /* AppDelegate.swift */,
 				CB82B3981EB1ACB7006270D8 /* ViewController.swift */,
 				CB82B39A1EB1ACB7006270D8 /* Main.storyboard */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB93BD571EE7CA0600A01E4B /* PhotoTweakView.swift in Sources */,
 				CB82B3A91EB1ADEB006270D8 /* PhotoTweakViewController.swift in Sources */,
 				CB82B3991EB1ACB7006270D8 /* ViewController.swift in Sources */,
 				CB82B3971EB1ACB7006270D8 /* AppDelegate.swift in Sources */,

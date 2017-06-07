@@ -10,17 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var imageView: UIImageView!
+    
+    let sampleImage = CIImage(image: UIImage(named: "SampleImage")!)!
+    var croppingParam: [String : AnyObject]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-//        let vc = PTRotateView() //PTCropView(frame: CGRect(x: 50, y: 50, width: 200, height: 200))
-//        view.addSubview(vc)
     }
     
     override func viewDidAppear(animated: Bool) {
-        let vc = PhotoTweakViewController(image: CIImage(image: UIImage(named: "SampleImage")!)!)
-        presentViewController(vc, animated: true, completion: nil)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +32,36 @@ class ViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    @IBAction func crop() {
+        let vc = PhotoTweakViewController(image: sampleImage)
+        vc.restoreParameter = croppingParam
+        vc.delegate = self
+        presentViewController(vc, animated: true, completion: nil)
+    }
 }
 
+extension ViewController: PhotoTweakViewControllerDelegate {
+    func photoTweak(photoTweak: PhotoTweakViewController, tweakedImage: CIImage, withParameter parameter: [String : AnyObject]) {
+        imageView.image = tweakedImage.UIImageViaCGimage()
+        croppingParam = parameter
+        photoTweak.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func photoTweakDidCancel(photoTweak: PhotoTweakViewController) {
+        photoTweak.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+extension CIImage {
+    func UIImageViaCGimage() -> UIImage? {
+        let eaglContext = EAGLContext(API: EAGLRenderingAPI.OpenGLES2)
+        let options = [kCIContextWorkingColorSpace : NSNull()]
+        let context = CIContext(EAGLContext: eaglContext, options: options)
+        guard let cgImage = context.createCGImage(self, fromRect: extent) else {
+            return nil
+        }
+        cgImage
+        return UIImage(CGImage: cgImage)
+    }
+}
